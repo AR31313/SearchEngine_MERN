@@ -1,3 +1,5 @@
+//auth.js: Update the auth middleware function to work with the GraphQL API.
+//activtity 25
 const jwt = require('jsonwebtoken');
 
 // set token secret and expiration date
