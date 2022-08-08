@@ -1,5 +1,3 @@
-//Activity 25
-
 //importing necessary browserrouter from react-router-dom
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -22,7 +20,7 @@ const httpLink = createHttpLink({
   uri: '/graphql',
 });
 
-
+// Leveraging applollo setcontext method for authention header
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem('id_token');
   return {

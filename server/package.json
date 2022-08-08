@@ -1,5 +1,5 @@
 {
-  "name": "server",
+  "name": "book-search-app",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -11,7 +11,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "nodemon": "^2.0.19",
     "apollo-server-express": "^3.10.0",
+    "react-bootstrap": "^2.4.0",
+    "react-router": "^6.3.0",
+    "react-router-dom": "^6.3.0",
     "bcrypt": "^4.0.1",
     "express": "^4.17.1",
     "graphql": "^16.5.0",

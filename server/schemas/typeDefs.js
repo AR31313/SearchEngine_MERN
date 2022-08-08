@@ -1,45 +1,38 @@
-const { gql } = require("apollo-server-express");
+const { gql } = require('apollo-server-express');
+
+// definition of types for graphQL 
 
 const typeDefs = gql`
-  type Book {
-    authors: [String]
-    description: String
-    bookId: String!
-    image: String
-    link: String
-    title: String!
-  }
-  type User {
+type User {
     _id: ID
-    username: String!
-    email: String!
-    bookCount: Int
+    username: String
+    email: String
+    description: String
+    password: String
     savedBooks: [Book]
-  }
-  type Auth {
-    token: ID!
-    user: User
-  }
-  input SavedBookInput {
+}
+type Book {
+    _id: ID
     authors: [String]
-    title: String
     description: String
     bookId: String
-    image: String
     link: String
-  }
-  type Query {
+    image: String
+    title: String
+}
+type Auth {
+    token: ID!
+    user: User
+}
+type Query {
     me: User
-    user: User!
-    users:[User]
-  }
-  type Mutation {
+}
+type Mutation {
+    createUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addUser(username: String!, email: String!, password: String!): Auth
-    removeUser(_id: ID): Auth
-    saveBook(input: SavedBookInput): User
-    removeBook(bookId: String!): User
-  }
+    saveBook(authors: [String], bookId: String, description: String!, image: String, link: String, title: String!): User
+    deleteBook(bookId: String!): User
+}
 `;
 
 module.exports = typeDefs;

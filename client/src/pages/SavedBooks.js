@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/client';
 import { useQuery } from '@apollo/client';
 import { Jumbotron, Container, CardColumns, Card, Button } from 'react-bootstrap';
 
-import { DELETE_BOOK } from '../utils/mutation';
+import { DELETE_BOOK } from '../utils/mutations';
 import { QUERY_ME } from '../utils/queries';
 import { removeBookId } from '../utils/localStorage';
 
