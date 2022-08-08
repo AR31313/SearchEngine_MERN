@@ -16,6 +16,8 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
+    "nodemon": "^2.0.19",
+    "react-bootstrap": "^2.4.0",
     "react-router": "^6.3.0",
     "react-router-dom": "^6.3.0"
   }

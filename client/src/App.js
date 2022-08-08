@@ -1,47 +1,49 @@
 //Activity 25
 
-import React from "react";
+//importing necessary browserrouter from react-router-dom
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+// import appollo modules for graphql along with authentication 
 import {
   ApolloClient,
   InMemoryCache,
+  ApolloProvider,
   createHttpLink,
-} from "@apollo/client";
-import { setContext } from "@apollo/client/link/context";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import SearchBooks from "./pages/SearchBooks";
-import SavedBooks from "./pages/SavedBooks";
-import Navbar from "./components/Navbar";
-import { ApolloProvider } from "@apollo/client";
+} from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
 
-// Construct our main GraphQL API endpoint
+//import modules needed for pages
+import SearchBooks from './pages/SearchBooks';
+import SavedBooks from './pages/SavedBooks';
+import Navbar from './components/Navbar';
+
 const httpLink = createHttpLink({
-  uri: "/graphql",
+  uri: '/graphql',
 });
 
-// Construct request middleware that will attach the JWT token to every request as an `authorization` header
+
 const authLink = setContext((_, { headers }) => {
-  // get the authentication token from local storage if it exists
-  const token = localStorage.getItem("id_token");
-  // return the headers to the context so httpLink can read them
+  const token = localStorage.getItem('id_token');
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : "",
+      authorization: token ? `Bearer ${token}` : '',
     },
   };
 });
 
+//Setting up appollo to access graphql
 const client = new ApolloClient({
-  // Set up our client to execute the `authLink` middleware prior to making the request to our GraphQL API
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
-});
+})
 
 function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <>
+        <div>
           <Navbar />
           <Routes>
             <Route
@@ -57,7 +59,7 @@ function App() {
               element={<h1 className='display-2'>Wrong page!</h1>}
             />
           </Routes>
-        </>
+        </div>
       </Router>
     </ApolloProvider>
   );
