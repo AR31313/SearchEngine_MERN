@@ -12,7 +12,7 @@ const LoginForm = (props) => {
   const [showAlert, setShowAlert] = useState(false);
 
   //Adding useMutation hook to be able login 
-  const [login, { loading, error, data }] = useMutation(LOGIN_USER);
+  const [login, { error }] = useMutation(LOGIN_USER);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -85,7 +85,13 @@ const LoginForm = (props) => {
           Submit
         </Button>
       </Form>
+      {error && (
+        <div className="my-3 p-3 bg-danger text-white">
+          {error.message}
+        </div>
+      )}
     </>
+
   );
 };
 

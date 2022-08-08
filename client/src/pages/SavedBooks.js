@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from "react";
 import { useMutation } from '@apollo/client';
 import { useQuery } from '@apollo/client';
 import { Jumbotron, Container, CardColumns, Card, Button } from 'react-bootstrap';
@@ -30,7 +30,7 @@ const SavedBooks = () => {
     }
 
     try {
-      const { loading, data } = await deleteBook({ variables: { bookId }, });
+      const { data } = await deleteBook({ variables: { bookId }, });
       if (!data) {
         throw new Error('something went wrong!');
       }
