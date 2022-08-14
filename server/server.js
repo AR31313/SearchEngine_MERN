@@ -29,7 +29,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 //Serve build/index.html when application is accessed at root
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
   res.sendFile(path.join(__direname, '../client/build/index.html'));
 });
 
