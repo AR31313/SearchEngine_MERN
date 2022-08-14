@@ -11,11 +11,12 @@ Covert starter code with a fully functioning Google Books API search engine buil
 3. Create an Apollo Provider so that requests can communicate with an Apollo Server.
 
 4. Deploy the application to Heroku with a MongoDB database using MongoDB Atlas. Use the [Deploy with Heroku and MongoDB Atlas](https://coding-boot-camp.github.io/full-stack/mongodb/deploy-with-heroku-and-mongodb-atlas).
+---
 
-- Application deployed at live URL:
+## Application deployed at live URL:
   https://dashboard.heroku.com/apps/aruw-search-engine-mern
 
-- Application GitHub URL:
+## Application GitHub URL:
   https://github.com/AR31313/SearchEngine_MERN
 
 ---
